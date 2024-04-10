@@ -1,14 +1,13 @@
 package com.example.data.sensor.browser
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.view.accessibility.AccessibilityEvent
 import com.example.domain.local.LocalRepository
 import com.example.domain.model.local.BrowserHistory
 import com.example.domain.sensor.accessibility.browsers.ChromeBrowserAccessibilitySensor
 import javax.inject.Inject
 
-class ChromeBrowserAccessibilitySensorImpl @Inject constructor(context: Context, private val localRepository: LocalRepository,) : BaseBrowserAccessibilitySensorImpl(localRepository),
+class ChromeBrowserAccessibilitySensorImpl @Inject constructor(private val localRepository: LocalRepository) : BaseBrowserAccessibilitySensorImpl(localRepository),
     ChromeBrowserAccessibilitySensor {
 
     override fun getPackageName(): String = PACKAGE_NAME
