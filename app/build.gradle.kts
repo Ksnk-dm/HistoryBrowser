@@ -52,20 +52,20 @@ android {
 
 
 dependencies {
+    implementation(project(":domain"))
+    implementation(project(":feature"))
+    implementation(project(":data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(project(":domain"))
-    implementation(project(":feature"))
-    implementation(project(":data"))
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
+//todo need refactoring in all implementation modules
     implementation("javax.inject:javax.inject:1")
     implementation("com.google.dagger:dagger:2.48.1")
     implementation("com.google.dagger:dagger-compiler:2.48.1")
@@ -79,6 +79,4 @@ dependencies {
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
     implementation ("com.jakewharton.timber:timber:5.0.1")
-
-
 }
