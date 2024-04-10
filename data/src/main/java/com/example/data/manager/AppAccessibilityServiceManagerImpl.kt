@@ -22,7 +22,7 @@ class AppAccessibilityServiceManagerImpl @Inject constructor(
             when (it.packageName) {
                 chromeBrowserAccessibilitySensor.getPackageName() -> chromeBrowserAccessibilitySensor.onAccessibilityEvent(event)
                 samsungBrowserAccessibilitySensor.getPackageName() -> samsungBrowserAccessibilitySensor.onAccessibilityEvent(event)
-            mozillaBrowserAccessibilitySensor.getPackageName() -> mozillaBrowserAccessibilitySensor.onAccessibilityEvent(event)
+                mozillaBrowserAccessibilitySensor.getPackageName() -> mozillaBrowserAccessibilitySensor.onAccessibilityEvent(event)
             }
         }
     }

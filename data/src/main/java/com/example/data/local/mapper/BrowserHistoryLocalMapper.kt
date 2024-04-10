@@ -9,15 +9,17 @@ class BrowserHistoryLocalMapper @Inject constructor() {
     fun mapBrowserHistoryEntityToModel(entity: BrowserHistoryEntity): BrowserHistory =
         BrowserHistory(
             entity.url,
+            entity.request,
             entity.date,
-            entity.browser
+            BrowserHistory.Browser.entries.first {it.name == entity.browser}
         ).apply { id = entity.id }
 
     fun mapBrowserHistoryModelToEntity(model: BrowserHistory): BrowserHistoryEntity =
         BrowserHistoryEntity(
             model.id,
             model.url,
+            model.request,
             model.date,
-            model.browser
+            model.browser.name
         )
 }

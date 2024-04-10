@@ -14,7 +14,7 @@
         android:theme="@style/Theme.HistoryBrowser"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
         </activity>
 
         <service
-            android:name=".AppAccessibilityService"
+            android:name=".services.AppAccessibilityService"
             android:exported="false"
             android:label="History browser service"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">

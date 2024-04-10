@@ -1,6 +1,6 @@
 package com.example.data.local.repository
 
-import com.example.data.local.Database
+import com.example.data.local.LocalDatabase
 import com.example.data.local.mapper.BrowserHistoryLocalMapper
 import com.example.domain.local.LocalRepository
 import com.example.domain.model.local.BrowserHistory
@@ -9,8 +9,9 @@ import io.reactivex.Flowable
 import javax.inject.Inject
 
 class LocalRepositoryImpl @Inject constructor(
-    private val db: Database,
-    private val browserHistoryLocalMapper: BrowserHistoryLocalMapper): LocalRepository {
+    private val db: LocalDatabase,
+    private val browserHistoryLocalMapper: BrowserHistoryLocalMapper
+): LocalRepository {
 
     override fun saveBrowserHistories(histories: List<BrowserHistory>): Completable =
         db.browserHistoryDao.insert(histories.map { browserHistoryLocalMapper.mapBrowserHistoryModelToEntity(it) })

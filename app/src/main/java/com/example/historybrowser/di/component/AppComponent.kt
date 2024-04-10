@@ -4,6 +4,8 @@ import android.app.Application
 import android.content.Context
 import com.example.data.di.DataModule
 import com.example.historybrowser.App
+import com.example.historybrowser.di.module.ActivityBuilderModule
+import com.example.historybrowser.di.module.FragmentBuilderModule
 import com.example.historybrowser.di.module.ServiceBuilderModule
 import dagger.BindsInstance
 import dagger.Component
@@ -15,6 +17,8 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         ServiceBuilderModule::class,
+        ActivityBuilderModule::class,
+        FragmentBuilderModule::class,
         DataModule::class
     ]
 )

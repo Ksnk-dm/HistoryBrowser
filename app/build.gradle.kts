@@ -35,7 +35,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    viewBinding {
+       enable = true
+    }
     packaging {
+
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
             excludes += "/META-INF/gradle/incremental.annotation.processors"
@@ -56,6 +61,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":feature"))
     implementation(project(":data"))
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -68,5 +74,9 @@ dependencies {
     implementation("com.google.dagger:dagger-android-processor:2.48.1")
     kapt("com.google.dagger:dagger-compiler:2.48.1")
     kapt("com.google.dagger:dagger-android-processor:2.48.1")
+    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
+    implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
 
 }

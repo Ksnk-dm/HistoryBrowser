@@ -2,7 +2,7 @@ package com.example.data.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.data.local.Database
+import com.example.data.local.LocalDatabase
 import com.example.data.local.repository.LocalRepositoryImpl
 import com.example.data.manager.AppAccessibilityServiceManagerImpl
 import com.example.data.sensor.browser.ChromeBrowserAccessibilitySensorImpl
@@ -23,14 +23,15 @@ class DataModule {
 
     @Provides
     @Singleton
-    fun provideDatabase(context: Context): Database =
-        Room.databaseBuilder(context, Database::class.java, "database.db")
+    fun provideDatabase(context: Context): LocalDatabase =
+        Room.databaseBuilder(context, LocalDatabase::class.java, "database.db")
             .build()
 
     @Provides
     @Singleton
     fun provideLocalRepository(repositoryImpl: LocalRepositoryImpl): LocalRepository =
         repositoryImpl
+
 
     @Provides
     @Singleton

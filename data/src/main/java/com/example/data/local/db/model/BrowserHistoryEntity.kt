@@ -8,6 +8,7 @@ data class BrowserHistoryEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
     var url: String,
+    var request: String,
     var date: Long,
     var browser: String
 )

@@ -1,7 +1,7 @@
-package com.example.feature.di
+package com.example.feature.di.scope
 
 import javax.inject.Scope
 
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class ServiceScope
+annotation class FragmentScope

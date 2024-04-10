@@ -1,19 +1,37 @@
 package com.example.data.sensor.browser
 
+import android.annotation.SuppressLint
+import android.util.Log
 import com.example.domain.local.LocalRepository
 import com.example.domain.model.local.BrowserHistory
 import com.example.domain.sensor.accessibility.browsers.BrowserAccessibilitySensor
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import com.example.feature.ext.withSchedulers
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 
 abstract class BaseBrowserAccessibilitySensorImpl(private val localRepository: LocalRepository) :
     BrowserAccessibilitySensor {
 
-
-    fun saveBrowserHistory(url: String) {
-        localRepository.saveBrowserHistories(
-            listOf(BrowserHistory(url, System.currentTimeMillis().toLong(), "test"))
-        ).withSchedulers(AndroidSchedulers.mainThread(), Schedulers.io())
+    @SuppressLint("CheckResult")
+    fun saveBrowserHistory(url: String, browser: BrowserHistory.Browser) {
+        runCatching {
+            if (url.contains("google.com")) {
+                val startIndex = url.indexOf("q=") + 2
+                val endIndex = url.indexOf("&", startIndex)
+                val searchText = url.substring(startIndex, endIndex)
+                localRepository.saveBrowserHistories(
+                    listOf(
+                        BrowserHistory(
+                            url,
+                            searchText,
+                            System.currentTimeMillis(),
+                            browser
+                        )
+                    )
+                ).withSchedulers(AndroidSchedulers.mainThread(), Schedulers.io())
+                    .subscribeBy(onComplete = { Log.d("MESSAGE::: ", "SAVE") })
+            }
+        }.onFailure { }
     }
 }
