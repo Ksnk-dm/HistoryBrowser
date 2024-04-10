@@ -9,6 +9,7 @@ import javax.inject.Inject
 
 class SamsungBrowserAccessibilityImpl @Inject constructor(private val localRepository: LocalRepository) : BaseBrowserAccessibilitySensorImpl(localRepository),
     SamsungBrowserAccessibilitySensor {
+
     override fun getPackageName(): String = PACKAGE_NAME
 
     @SuppressLint("NewApi")

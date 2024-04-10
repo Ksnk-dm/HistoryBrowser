@@ -8,6 +8,7 @@ import com.example.domain.sensor.accessibility.browsers.MozillaBrowserAccessibil
 import javax.inject.Inject
 
 class MozillaBrowserAccessibilityImpl @Inject constructor(private val localRepository: LocalRepository) : BaseBrowserAccessibilitySensorImpl(localRepository), MozillaBrowserAccessibilitySensor {
+
     override fun getPackageName(): String = PACKAGE_NAME
 
     @SuppressLint("NewApi")
