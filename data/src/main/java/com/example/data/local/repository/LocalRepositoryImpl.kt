@@ -20,6 +20,9 @@ class LocalRepositoryImpl @Inject constructor(
         db.browserHistoryDao.update(browserHistoryLocalMapper.mapBrowserHistoryModelToEntity(histories))
 
 
-    override fun getBrowserHistories(): Flowable<List<BrowserHistory>> = db.browserHistoryDao.selectBrowserBookmarks()
+    override fun getBrowserHistories(): Flowable<List<BrowserHistory>> = db.browserHistoryDao.selectBrowserHistories()
         .map { list -> list.map { browserHistoryLocalMapper.mapBrowserHistoryEntityToModel(it) } }
+
+    override fun deleteBrowserHistory(id: Long): Completable =
+        db.browserHistoryDao.deleteBrowserHistory(id)
 }

@@ -11,4 +11,6 @@ interface BrowserHistoryLocalProvider {
     fun updateBrowserHistories(histories: BrowserHistory): Completable
 
     fun getBrowserHistories(): Flowable<List<BrowserHistory>>
+
+    fun deleteBrowserHistory(id: Long): Completable
 }

@@ -19,5 +19,8 @@ interface BrowserHistoryDao {
     fun update(item: BrowserHistoryEntity): Completable
 
     @Query("SELECT * FROM BrowserHistoryEntity")
-    fun selectBrowserBookmarks(): Flowable<List<BrowserHistoryEntity>>
+    fun selectBrowserHistories(): Flowable<List<BrowserHistoryEntity>>
+
+    @Query("DELETE FROM BrowserHistoryEntity WHERE id = :id")
+    fun deleteBrowserHistory(id: Long): Completable
 }
