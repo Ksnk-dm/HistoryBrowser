@@ -1,0 +1,3 @@
+package com.example.domain.sensor.accessibility.browsers
+
+interface SamsungBrowserAccessibilitySensor : BrowserAccessibilitySensor
