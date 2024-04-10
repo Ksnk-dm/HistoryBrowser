@@ -18,24 +18,21 @@
         <TextView
             android:id="@+id/textViewRequest"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="25dp"
             android:layout_gravity="center"
-            android:text="test"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewUrl"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="40"
-            android:text="wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" />
+            android:layout_height="35dp"
+            android:maxLength="40" />
 
         <TextView
             android:id="@+id/textViewDate"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="22.02.24 10:15" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <ImageView
@@ -54,6 +51,7 @@
         android:layout_height="75dp"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/delete_svgrepo_com" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
