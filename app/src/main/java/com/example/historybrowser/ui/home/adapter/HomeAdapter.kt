@@ -13,6 +13,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class HomeAdapter(private val items: List<BrowserHistory>, private val viewModel: HomeViewModel) :
     RecyclerView.Adapter<HomeAdapter.HomeViewHolder>() {
@@ -34,7 +37,7 @@ class HomeAdapter(private val items: List<BrowserHistory>, private val viewModel
         @SuppressLint("CheckResult")
         fun bind(item: BrowserHistory) {
             binding.textViewUrl.text = item.url
-            binding.textViewDate.text = item.date.toString()
+            binding.textViewDate.text = formatTime(item.date)
             binding.textViewRequest.text = item.request
             binding.imageButtonDelete.setOnClickListener {
                 viewModel.removeBrowserHistory(item.id)
@@ -50,6 +53,10 @@ class HomeAdapter(private val items: List<BrowserHistory>, private val viewModel
             }
         }
     }
+
+    fun formatTime(milliseconds: Long): String =
+        SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(Date(milliseconds))
+
 
     private fun create(
         parent: ViewGroup,

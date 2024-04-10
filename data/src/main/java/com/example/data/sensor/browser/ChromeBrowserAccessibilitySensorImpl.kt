@@ -11,16 +11,19 @@ import javax.inject.Inject
 class ChromeBrowserAccessibilitySensorImpl @Inject constructor(context: Context, private val localRepository: LocalRepository,) : BaseBrowserAccessibilitySensorImpl(localRepository),
     ChromeBrowserAccessibilitySensor {
 
-    override fun getPackageName(): String {
-        return "com.android.chrome"
-    }
+    override fun getPackageName(): String = PACKAGE_NAME
 
     @SuppressLint("NewApi")
     override fun onAccessibilityEvent(accessibilityEvent: Any) {
         val event = accessibilityEvent as AccessibilityEvent
         val nodeInfo = event.source
-        nodeInfo?.findAccessibilityNodeInfosByViewId("com.android.chrome:id/url_bar")?.firstOrNull()?.let {
+        nodeInfo?.findAccessibilityNodeInfosByViewId(VIEW_ID)?.firstOrNull()?.let {
           if (!it.isFocused) saveBrowserHistory(it.text.toString(), BrowserHistory.Browser.Chrome)
         }
+    }
+
+    companion object {
+        private const val PACKAGE_NAME = "com.android.chrome"
+        private const val VIEW_ID = "com.android.chrome:id/url_bar"
     }
 }

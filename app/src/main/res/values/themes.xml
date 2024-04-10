@@ -1,7 +1,7 @@
 <resources>
     <style name="Base.Theme.HistoryBrowser" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
-        <item name="statusBarBackground">@color/primary</item>
+        <item name="android:statusBarColor">@color/primary</item>
     </style>
 
     <style name="Theme.HistoryBrowser" parent="Base.Theme.HistoryBrowser" />

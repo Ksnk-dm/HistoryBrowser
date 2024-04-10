@@ -1,7 +1,6 @@
 package com.example.data.sensor.browser
 
 import android.annotation.SuppressLint
-import android.util.Log
 import com.example.domain.local.LocalRepository
 import com.example.domain.model.local.BrowserHistory
 import com.example.domain.sensor.accessibility.browsers.BrowserAccessibilitySensor
@@ -9,6 +8,7 @@ import com.example.feature.ext.withSchedulers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.subscribeBy
 import io.reactivex.schedulers.Schedulers
+import timber.log.Timber
 
 abstract class BaseBrowserAccessibilitySensorImpl(private val localRepository: LocalRepository) :
     BrowserAccessibilitySensor {
@@ -30,8 +30,8 @@ abstract class BaseBrowserAccessibilitySensorImpl(private val localRepository: L
                         )
                     )
                 ).withSchedulers(AndroidSchedulers.mainThread(), Schedulers.io())
-                    .subscribeBy(onComplete = { Log.d("MESSAGE::: ", "SAVE") })
+                    .subscribeBy(onComplete = {  })
             }
-        }.onFailure { }
+        }.onFailure {Timber.e(it) }
     }
 }
