@@ -16,8 +16,7 @@
 <div>
 <pre>io.reactivex.rxjava2 - rx для багатопоточності<br/><br/></pre>
 <div>
-<pre>com.jakewharton.timber:timber:5.0.1 - логуввання</pre>
+<pre>com.jakewharton.timber:timber:5.0.1 - логування</pre>
 </div>
 </div>
-<pre><br/><br/></pre>
 </div>
