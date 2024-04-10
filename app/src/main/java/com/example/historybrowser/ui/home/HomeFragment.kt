@@ -44,7 +44,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         with(viewBinding) {
             viewModel.getBrowserHistories()
                 .withSchedulers(AndroidSchedulers.mainThread(), Schedulers.io())

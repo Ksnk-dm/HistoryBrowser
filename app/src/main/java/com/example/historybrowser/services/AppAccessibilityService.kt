@@ -13,7 +13,6 @@ class AppAccessibilityService : AccessibilityService() {
 
     override fun onCreate() {
         super.onCreate()
-
         AndroidInjection.inject(this)
     }
 
